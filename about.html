@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Otakupicks</title>
+    <link rel="stylesheet" href="page.css">
 </head>
 <body>
+<<<<<<< HEAD
     <div style="width: 100%; height: 100%; position: relative; background: white">
         <div style="width: 1920px; height: 1080px; left: -30px; top: 0px; position: absolute; background: #D9D9D9"></div>
         <div style="width: 1920px; height: 189px; left: 0px; top: 0px; position: absolute; background: #9442B1"></div>
@@ -19,12 +21,49 @@
                 <div style="width: 41.25px; height: 35px; left: 6.88px; top: 17.50px; position: absolute; border: 4px white solid"></div>
             </div>
             <div style="width: 221.18px; height: 106.88px; left: 117px; top: 42px; position: absolute; color: white; font-size: 55px; font-family: JejuGothic; font-weight: 400; word-wrap: break-word">MENU</div>
+=======
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Otakupicks Logo" width="40px">
+            <h1>Otakupicks</h1>
+>>>>>>> 597eef952fd0d45c6088c4e9cab0549b01d4edf8
         </div>
-        <div style="left: 813px; top: 253px; position: absolute; color: black; font-size: 100px; font-family: JejuGothic; font-weight: 400; word-wrap: break-word">About</div>
-        <div style="width: 500px; height: 500px; left: 77px; top: 426px; position: absolute; background: white"></div>
-        <div style="width: 500px; height: 500px; left: 970px; top: 426px; position: absolute; background: white"></div>
-        <div style="left: 226px; top: 676px; position: absolute; color: black; font-size: 40px; font-family: JejuGothic; font-weight: 400; word-wrap: break-word">picture.jpg</div>
-        <div style="left: 1119px; top: 664px; position: absolute; color: black; font-size: 40px; font-family: JejuGothic; font-weight: 400; word-wrap: break-word">picture.jpg</div>
-    </div>
+        <button class="menu-btn" onclick="toggleMenu()">☰ MENU</button>
+    </header>
+    
+    <main>
+        <section class="catalog">
+            <h2>Catalog</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="picture.jpg" alt="Action">
+                    <p>Action</p>
+                </div>
+                <div class="card">
+                    <img src="picture.jpg" alt="Action">
+                    <p>Action</p>
+                </div>
+                <div class="card">
+                    <img src="picture.jpg" alt="Action">
+                    <p>Action</p>
+                </div>
+            </div>
+        </section>
+
+        <aside class="menu" id="menu">
+            <ul>
+                <li><button class="filter-btn">action</button></li>
+                <li><button class="filter-btn">adventure</button></li>
+                <li><button class="filter-btn">thriller</button></li>
+                <li><button class="filter-btn">comedy</button></li>
+                <li><button class="filter-btn">romance</button></li>
+                <li><button class="filter-btn">sci-fi</button></li>
+            </ul>
+            <button class="filter-btn">filter</button>
+            <button class="filter-btn">about</button>
+        </aside>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
