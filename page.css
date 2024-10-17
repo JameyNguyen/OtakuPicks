@@ -168,3 +168,12 @@ main {
 .filter-btn:hover {
     text-decoration: underline;
 }
+
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
