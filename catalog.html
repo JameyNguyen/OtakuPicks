@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="Henry Tang" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
     <title>Otaku Picks</title>
 
@@ -20,40 +20,32 @@
   </head>
   <body>
     <header data-bs-theme="dark">
-        <nav class="navbar" style="background-color: #7c42ad;">
-          <div class="container-fluid">
-            <a class="page-name-display" href="homepage.html">Otakupicks</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+      <nav class="navbar" style="background-color: #7c42ad;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Otakupicks</a>
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>            
             <div class="collapse navbar-collapse" id="navbarCollapse">
-              <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="catalog.html">Catalog</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="filter.html">Filter</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="about.html">About</a>
-                </li>
-              </ul>
+                <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="catalog.html">Catalog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="filter.html">Filter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="about.html">About</a>
+                    </li>
+                </ul>
             </div>
-          </div>
-        </nav>
-      </header>
-    
-      <div class="navbar navbar-dark bg-dark shadow-sm">
-        <div class="container">
-          <a href="#" class="navbar-brand d-flex align-items-center">
-            <svg width="20" height="30"></svg>
-          </a>
         </div>
-      </div>
+    </nav>
+    
+    
     </header>
 
 <main>
-
   <section>
     <h1 style="text-align: center">
       Catalog
@@ -61,11 +53,25 @@
   </section>
   <div class="album py-5 bg-body-tertiary">
     <div class="container">
-
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col">
           <div class="card shadow-sm">
-            <img class="bd-placeholder-img card-img-top" width="350" height="450" src ="./images/K-On.jpg" alt="flower1" />
+            <img class="bd-placeholder-img card-img-top" src="./images/K-On.jpg" alt="K-On" style="width: 100%; height: auto; object-fit: cover;" />
+            
+            <div class="card-body">
+              <p class="card-text">Enter text</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                </div>
+                <small class="text-body-secondary">Enter text</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" src="./images/Toradora.jpg" style="width: 100%; height: auto; object-fit: cover;"/>
             <div class="card-body">
               <p class="card-text">Enter text</p>
               <div class="d-flex justify-content-between align-items-center">
@@ -78,20 +84,7 @@
         </div>
         <div class="col">
           <div class="card shadow-sm">
-            <img class="bd-placeholder-img card-img-top" width="350" height="450" src="./images/Toradora.jpg"/>
-            <div class="card-body">
-              <p class="card-text">Enter text</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                </div>
-                <small class="text-body-secondary">Enter text</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="bd-placeholder-img card-img-top" width="350" height="450" src="./images/Bakemonogatari.jpg"/>
+            <img class="bd-placeholder-img card-img-top" src="./images/Bakemonogatari.jpg" style="width: 100%; height: auto; object-fit: cover;"/>
             <div class="card-body">
               <p class="card-text">Enter text</p>
               <div class="d-flex justify-content-between align-items-center">
@@ -105,7 +98,7 @@
 
         <div class="col">
           <div class="card shadow-sm">
-            <img class="bd-placeholder-img card-img-top" width="350" height="450" src="./images/Frieren.jpg"/>
+            <img class="bd-placeholder-img card-img-top" src="./images/Frieren.jpg" style="width: 100%; height: auto; object-fit: cover;"/>
             <div class="card-body">
               <p class="card-text">Enter text</p>
               <div class="d-flex justify-content-between align-items-center">
@@ -118,7 +111,7 @@
         </div>
         <div class="col">
           <div class="card shadow-sm">
-            <img class="bd-placeholder-img card-img-top" width="350" height="450" src="./images/Eva.jpg"/>
+            <img class="bd-placeholder-img card-img-top" src="./images/Eva.jpg" style="width: 100%; height: auto; object-fit: cover;"/>
             <div class="card-body">
               <p class="card-text">Enter text</p>
               <div class="d-flex justify-content-between align-items-center">
@@ -131,7 +124,7 @@
         </div>
         <div class="col">
           <div class="card shadow-sm">
-            <img class="bd-placeholder-img card-img-top" width="350" height="450" src="./images/VEG.jpg"/>
+            <img class="bd-placeholder-img card-img-top" src="./images/VEG.jpg" style="width: 100%; height: auto; object-fit: cover;"/>
             <div class="card-body">
               <p class="card-text">Enter text</p>
               <div class="d-flex justify-content-between align-items-center">
