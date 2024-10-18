@@ -1,20 +1,18 @@
-{
-    "authors":
+
+
+[
     {
-        "jamey" : 
-        {
-            "id" : "jamey",
-            "name" : "Jamey Nguyen", 
-            "email" : "takuli@iastate.edu",
-            "biography" : "Jamey Nguyen is a junior computer science student. He is attending CS319 under Prof. Aldaco."
-        },
-        
-        "henry" : 
-        {
-            "id" : "henry",
-            "name" : "Henry Tang", 
-            "email" : "htang09@iastate.edu",
-            "biography" : "Henry Tang is a junior computer science student. He is attending CS319 under Prof. Aldaco."
-        }
+        "id" : "jamey",
+        "name" : "Jamey Nguyen", 
+        "email" : "takuli@iastate.edu",
+        "picture" : "images/jamey.jpg",
+        "biography" : "He is attending CS319 under Professor Aldaco."
+    },
+    {
+        "id" : "henry",
+        "name" : "Henry Tang", 
+        "email" : "htang09@iastate.edu",
+        "picture" : "images/Henry.jpg",
+        "biography" : "He is attending CS319 under Professor Aldaco."
     }
-}
+]
