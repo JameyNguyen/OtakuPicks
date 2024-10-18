@@ -1,0 +1,20 @@
+{
+    "authors":
+    {
+        "jamey" : 
+        {
+            "id" : "jamey",
+            "name" : "Jamey Nguyen", 
+            "email" : "takuli@iastate.edu",
+            "biography" : "Jamey Nguyen is a junior computer science student. He is attending CS319 under Prof. Aldaco."
+        },
+        
+        "henry" : 
+        {
+            "id" : "henry",
+            "name" : "Henry Tang", 
+            "email" : "htang09@iastate.edu",
+            "biography" : "Henry Tang is a junior computer science student. He is attending CS319 under Prof. Aldaco."
+        }
+    }
+}

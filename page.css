@@ -169,7 +169,11 @@ main {
     text-decoration: underline;
 }
 
-.navbar-toggler {
-  float: left;
-  margin-right: 20px;
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
