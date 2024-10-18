@@ -27,6 +27,11 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 })
 
+
+/*
+* Javascript to link to different pages on the blog's main homepage.
+*/
+
 /*
 * This is javascript for Jamey on the About page.
 */
@@ -74,23 +79,51 @@ document.getElementById('henry').addEventListener('click', function()
     }
 });
 
+window.onload = function()
+{
+    importAuthorData();
+    //importAnimeData();
+}
+
+/*
+* Used for loading author data in the about us page.
+*/ 
 function importAuthorData()
 {
-    fetch("/data/authors.json")
+    fetch("data/authors.json")
     .then(response => response.json())
     .then(authors => loadAuthors(authors)) // get the authors dict
     .catch(error => console.log("BIG PROBLEM: " + error))
 }
 
-function loadAuthors(author)
+function loadAuthors(data)
 {
-    let card = document.getElementById(author.id)
-    
-    card.innerHTML = 
-    `<img src="pictures/jamey.jpg" width="50%" height="50%">
-        <h2 class="fw-normal">Jamey Nguyen</h2>
-        <p><strong>Jamey Nguyen</strong> is a junior computer science student.<br>He is attending CS 319 under Professor Aldaco.</p>
-        <div>
-            <small class="text-body-secondary">Email: takuli@iastate.edu <br> Date: 09/17/2024</small>
-          </div>`
+    data.forEach(author => {
+        let card = document.getElementById(author.id)
+        card.innerHTML = 
+        `<img src="${author.picture}" width="50%" height="50%">
+            <h2 class="fw-normal">${author.name}</h2>
+            <p><strong>${author.name}</strong> is a junior computer science student.<br>${author.biography}</p>
+            <div>
+                <small class="text-body-secondary">Email: ${author.email} <br> Date: 09/17/2024</small>
+              </div>`
+    });
+}
+
+/*
+* This is used for the 'catalog.html' page to load anime data in.
+*/
+function importAnimeData()
+{
+    fetch("data/data.json")
+    .then(response => response.json())
+    .then(animes => loadAnimes(animes)) // get the animes
+    .catch(error => console.log("BIG PROBLEM: " + error))
+}
+
+function loadAnimes(data)
+{
+    data.forEach(anime => {
+
+    });
 }
