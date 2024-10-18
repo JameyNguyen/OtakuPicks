@@ -85,5 +85,12 @@ function importAuthorData()
 function loadAuthors(author)
 {
     let card = document.getElementById(author.id)
-    card.innerHTML = "<p>"
+    
+    card.innerHTML = 
+    `<img src="pictures/jamey.jpg" width="50%" height="50%">
+        <h2 class="fw-normal">Jamey Nguyen</h2>
+        <p><strong>Jamey Nguyen</strong> is a junior computer science student.<br>He is attending CS 319 under Professor Aldaco.</p>
+        <div>
+            <small class="text-body-secondary">Email: takuli@iastate.edu <br> Date: 09/17/2024</small>
+          </div>`
 }
