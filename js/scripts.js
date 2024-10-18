@@ -14,7 +14,6 @@ window.addEventListener('DOMContentLoaded', () => {
             if (currentTop > 0 && mainNav.classList.contains('is-fixed')) {
                 mainNav.classList.add('is-visible');
             } else {
-                console.log(123);
                 mainNav.classList.remove('is-visible', 'is-fixed');
             }
         } else {
@@ -27,3 +26,64 @@ window.addEventListener('DOMContentLoaded', () => {
         scrollPos = currentTop;
     });
 })
+
+/*
+* This is javascript for Jamey on the About page.
+*/
+let expand = false;
+document.getElementById('jamey').addEventListener('click', function()
+{
+    let jamey = document.getElementById('jamey')
+    jamey.classList.toggle('expand')
+    if (!expand)
+    {
+        document.body.style.overflow = 'hidden';
+        expand = true;
+        console.log("stop scrolling")
+    }
+    else
+    {
+        expand = false;
+        document.body.style.overflow = 'auto';
+        console.log("keep scrolling")
+        console.log()
+    }
+});
+
+/*
+* This is javascript for Henry on the About page.
+*/
+document.getElementById('henry').addEventListener('click', function()
+{
+    //document.querySelector('.smallAbout').classList.toggle('expand')
+    //this.document.classList.toggle('expand')
+    let henry = document.getElementById('henry')
+    henry.classList.toggle('expand')
+    if (!expand)
+    {
+        document.body.style.overflow = 'hidden';
+        expand = true;
+        console.log("stop scrolling")
+    }
+    else
+    {
+        expand = false;
+        document.body.style.overflow = 'auto';
+        console.log("keep scrolling")
+        console.log()
+    }
+});
+
+function importAuthorData()
+{
+    fetch("/data/authors.json")
+    .then(response => response.json())
+    .then(authors => loadAuthors(authors)) // get the authors dict
+    .catch(error => console.log("BIG PROBLEM: " + error))
+}
+
+function loadAuthors(author)
+{
+    let card = document.getElementById(author.id)
+    card.innerHTML = "<p>"
+}
