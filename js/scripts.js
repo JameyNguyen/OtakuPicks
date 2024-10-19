@@ -101,12 +101,20 @@ function loadAuthors(data)
     data.forEach(author => {
         let card = document.getElementById(author.id)
         card.innerHTML = 
-        `<img src="${author.picture}" width="50%" height="50%">
-            <h2 class="fw-normal">${author.name}</h2>
-            <p><strong>${author.name}</strong> is a junior computer science student.<br>${author.biography}</p>
-            <div>
-                <small class="text-body-secondary">Email: ${author.email} <br> Date: 09/17/2024</small>
-              </div>`
+        `<div class="author-container">
+                <img src="${author.picture}" alt="${author.name}'s picture" class="author-picture">
+                <div class="author-info">
+                    <h2 class="author-name">${author.name}</h2>
+                    <h3 class="author-title">Junior Computer Science Student</h3>
+                    <p class="author-bio">${author.biography}</p>
+                    <div class="author-contact">
+                        <button class="email-button">
+                            <a href="mailto:${author.email}">Email ${author.name}</a>
+                        </button>
+                        <small class="text-muted">Date: 09/17/2024</small>
+                    </div>
+                </div>
+            </div>`;
     });
 }
 
