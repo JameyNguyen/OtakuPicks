@@ -1,8 +1,8 @@
 [
     {
-        "name" : "K-on",
+        "name" : "K-On",
         "image" : "./images/K-on.jpg",
-        "text" : "K-on!",
+        "text" : "K-On!",
         "smallText" : "Enter text"
     },
     {
@@ -20,13 +20,13 @@
     {
         "name" : "Frieren",
         "image" : "./images/Frieren.jpg",
-        "text" : "Frieren",
+        "text" : "Sousou no Frieren",
         "smallText" : "Enter text"
     },
     {
         "name" : "Evangelion",
         "image" : "./images/Eva.jpg",
-        "text" : "Evangelion",
+        "text" : "Neon Genesis Evangelion",
         "smallText" : "Enter text"
     },
     {
