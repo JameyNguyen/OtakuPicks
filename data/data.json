@@ -3,36 +3,36 @@
         "name" : "K-On",
         "image" : "./images/K-on.jpg",
         "text" : "K-On!",
-        "smallText" : "Enter text"
+        "smallText" : "A heartwarming story about friendship and personal growth as a group of high school girls form a light music band. Their journey is filled with laughter, music, and the joy of enjoying everyday moments together."
     },
     {
         "name" : "Toradora",
         "image" : "./images/Toradora.jpg",
         "text" : "Toradora!",
-        "smallText" : "Enter text"
+        "smallText" : "A charming romantic comedy with deep emotional layers, where two unlikely friends team up to help each other with their crushes, only to realize that true love can be found where they least expect it."
     },
     {
         "name" : "Bakemonogatari",
         "image" : "./images/Bakemonogatari.jpg",
         "text" : "Bakemonogatari",
-        "smallText" : "Enter text"
+        "smallText" : "A visually unique and intellectually stimulating series, where a boy who survived a vampire attack helps others with their supernatural problems, blending mystery, romance, and quirky dialogue."
     },
     {
         "name" : "Frieren",
         "image" : "./images/Frieren.jpg",
         "text" : "Sousou no Frieren",
-        "smallText" : "Enter text"
+        "smallText" : "A beautiful reflection on life and time, following an elf mage’s post-adventure journey, discovering the value of the relationships and experiences that define what it means to be human."
     },
     {
         "name" : "Evangelion",
         "image" : "./images/Eva.jpg",
         "text" : "Neon Genesis Evangelion",
-        "smallText" : "Enter text"
+        "smallText" : "A thought-provoking, emotional masterpiece blending mecha action with deep psychological exploration, as young pilots battle mysterious enemies while grappling with their inner struggles and self-discovery."
     },
     {
         "name" : "VEG",
         "image" : "./images/VEG.jpg",
         "text" : "Violet Evergarden",
-        "smallText" : "Enter text"
+        "smallText" : "A stunningly animated tale of healing and connection, as a former soldier, now a letter-writer, learns to understand human emotions and finds her own sense of purpose and peace."
     }
 ]
