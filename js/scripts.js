@@ -82,21 +82,21 @@ document.getElementById('henry').addEventListener('click', function()
 window.onload = function()
 {
     importAuthorData();
-    //importAnimeData();
+    importAnimeData();
 }
 
 /*
 * Used for loading author data in the about us page.
 */ 
-function importAuthorData()
+function importAuthorData(callback)
 {
     fetch("data/authors.json")
     .then(response => response.json())
-    .then(authors => loadAuthors(authors)) // get the authors dict
+    .then(authors => loadAuthors(authors, callback)) // get the authors dict
     .catch(error => console.log("BIG PROBLEM: " + error))
 }
 
-function loadAuthors(data)
+function loadAuthors(data, callback)
 {
     data.forEach(author => {
         let card = document.getElementById(author.id)
@@ -116,6 +116,11 @@ function loadAuthors(data)
                 </div>
             </div>`;
     });
+
+    if (callback)
+    {
+        callback();
+    }
 }
 
 /*
@@ -132,6 +137,6 @@ function importAnimeData()
 function loadAnimes(data)
 {
     data.forEach(anime => {
-
+        console.log(anime)
     });
 }

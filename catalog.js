@@ -27,36 +27,51 @@ const animeList = [
     { image: './images/VEG.jpg', text: 'Violet Evergarden', smallText: 'Enter text' },
 ];
 
-// Append cards to the container
 
-document.addEventListener('DOMContentLoaded', () => {
+function importAnimeData(callback)
+{
+    fetch("data/data.json")
+    .then(response => response.json())
+    .then(animes => loadAnimes(animes, callback)) // get the animes
+    .catch(error => console.log("BIG PROBLEM: " + error))
+}
+
+function loadAnimes(data, callback)
+{
     const cardContainer = document.getElementById('animeCatalog');
-    // Create a new row
-    let currentRow = document.createElement('div');
-    currentRow.classList.add('row'); // Use Bootstrap's row class
 
-    animeList.forEach((anime, index) => {
-        // Create the card element
-        const cardHtml = animeCard(anime);
-        const cardElement = document.createElement('div');
+    let currentRow = document.createElement('div');
+    currentRow.classList.add('row');
+    
+    data.forEach((anime, index) => {
+        /* Create a card element and div using an anime constant class defined above */
+        let cardHtml = animeCard(anime);
+        let cardElement = document.createElement('div');
+
         cardElement.innerHTML = cardHtml;
-        
-        // If it's the first card in a row, add the row to the container
-        if (index % 3 === 0 && index !== 0) {
-            // Append the current row to the container and start a new row
+
+        if (index % 3 === 0 && index !== 0)
+        {
+            // At index 3, 6, 9, ... you are at the end of the row and u want to start a new row after this
             cardContainer.appendChild(currentRow);
             currentRow = document.createElement('div');
             currentRow.classList.add('row');
         }
-        
-        // Append the card to the current row
         currentRow.appendChild(cardElement.firstElementChild); // This gets the first child (the card)
-        
-        console.log(anime.text);
     });
 
-    // Append the last row if it has cards
-    if (currentRow.childElementCount > 0) {
+    if (currentRow.childElementCount > 0)
+    {
         cardContainer.appendChild(currentRow);
     }
-});
+
+    if (callback)
+    {
+        callback();
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () =>
+{
+    importAnimeData();
+})
