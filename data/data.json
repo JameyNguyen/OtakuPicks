@@ -1,35 +1,38 @@
-{
-    "animePictures":
+[
     {
-        "frieren" : 
-        {
-            "description": "elf girl",
-            "url" : "images/frieren"
-        },
-        "k-on" :
-        {
-            "description": "music club",
-            "url" : "images/k-on"
-        },
-        "violet-evergarden" :
-        {
-            "description": "war orphan",
-            "url" : "images/violet-evergarden"
-        },
-        "toradora" :
-        {
-            "description": "tsundere girl",
-            "url" : "images/toradora"
-        },
-        "evangelion" :
-        {
-            "description": "robot sussy",
-            "url" : "images/evangelion"
-        },
-        "monogatari" :
-        {
-            "description": "sussy in general",
-            "url" : "images/monogatari"
-        }
+        "name" : "K-on",
+        "image" : "./images/K-on.jpg",
+        "text" : "K-on!",
+        "smallText" : "Enter text"
+    },
+    {
+        "name" : "Toradora",
+        "image" : "./images/Toradora.jpg",
+        "text" : "Toradora!",
+        "smallText" : "Enter text"
+    },
+    {
+        "name" : "Bakemonogatari",
+        "image" : "./images/Bakemonogatari.jpg",
+        "text" : "Bakemonogatari",
+        "smallText" : "Enter text"
+    },
+    {
+        "name" : "Frieren",
+        "image" : "./images/Frieren.jpg",
+        "text" : "Frieren",
+        "smallText" : "Enter text"
+    },
+    {
+        "name" : "Evangelion",
+        "image" : "./images/Eva.jpg",
+        "text" : "Evangelion",
+        "smallText" : "Enter text"
+    },
+    {
+        "name" : "VEG",
+        "image" : "./images/VEG.jpg",
+        "text" : "Violet Evergarden",
+        "smallText" : "Enter text"
     }
-}
+]
