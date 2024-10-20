@@ -17,8 +17,6 @@ const animeCard = (anime) => {
     `;
 };
 
-
-
 // Example data
 const animeList = [
     { image: './images/K-On.jpg', text: 'K-On!', smallText: 'Enter text' },
