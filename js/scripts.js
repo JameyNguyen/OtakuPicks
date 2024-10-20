@@ -111,7 +111,7 @@ function loadAuthors(data)
                         <button class="email-button">
                             <a href="mailto:${author.email}">Email ${author.name}</a>
                         </button>
-                        <small class="text-muted">Date: 09/17/2024</small>
+                        <small class="text-muted">At ${author.email}</small>
                     </div>
                 </div>
             </div>`;
