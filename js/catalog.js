@@ -17,17 +17,6 @@ const animeCard = (anime) => {
     `;
 };
 
-// Example data
-const animeList = [
-    { image: './images/K-On.jpg', text: 'K-On!', smallText: 'Enter text' },
-    { image: './images/Toradora.jpg', text: 'Toradora!', smallText: 'Enter text' },
-    { image: './images/Bakemonogatari.jpg', text: 'Bakemonogatari', smallText: 'Enter text' },
-    { image: './images/Frieren.jpg', text: 'Sousou no Frieren', smallText: 'Enter text' },
-    { image: './images/Eva.jpg', text: 'Neon Genesis Evangelion', smallText: 'Enter text' },
-    { image: './images/VEG.jpg', text: 'Violet Evergarden', smallText: 'Enter text' },
-];
-
-
 function importAnimeData(callback)
 {
     fetch("data/data.json")
