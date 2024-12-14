@@ -32,6 +32,23 @@ db.connect((err) => {
     console.log("Connected to MySQL");
 });
 
+// Set up multer for images
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "images/"); // Save images in the 'images' folder
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + path.extname(file.originalname)); // Unique filename
+    }
+ });
+const upload = multer({ storage: storage });
+
+// Create "images" folder if it doesn't exist
+const fs = require("fs");
+if (!fs.existsSync("images")) {
+    fs.mkdirSync("images");
+}
+
 // login
 app.post("/login", (req, res) => {
     const { username, password } = req.body;
@@ -116,7 +133,7 @@ app.get("/anime/:name", (req, res) => {
 //Get random background
 app.get("/background", (req, res) => {
     try {
-        db.query("SELECT * FROM background ORDER BY RAND() LIMIT 1", (err, result) => {
+        db.query("SELECT filename FROM background ORDER BY RAND() LIMIT 1", (err, result) => {
             return res.status(200).send(result);
         });
     } catch (err) {
