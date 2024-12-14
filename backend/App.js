@@ -133,7 +133,8 @@ app.get("/anime/:name", (req, res) => {
 //Get random background
 app.get("/background", (req, res) => {
     try {
-        db.query("SELECT filename FROM background ORDER BY RAND() LIMIT 1", (err, result) => {
+        db.query("SELECT * FROM background ORDER BY RAND() LIMIT 1", (err, result) => {
+            console.log("background fetched!")
             return res.status(200).send(result);
         });
     } catch (err) {
