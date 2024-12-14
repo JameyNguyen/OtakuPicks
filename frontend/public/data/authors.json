@@ -1,0 +1,18 @@
+
+
+[
+    {
+        "id" : "jamey",
+        "name" : "Jamey Nguyen", 
+        "email" : "takuli@iastate.edu",
+        "picture" : "images/jamey.jpg",
+        "biography" : "He is attending CS319 under Professor Aldaco."
+    },
+    {
+        "id" : "henry",
+        "name" : "Henry Tang", 
+        "email" : "htang09@iastate.edu",
+        "picture" : "images/Henry.jpg",
+        "biography" : "He is attending CS319 under Professor Aldaco."
+    }
+]
