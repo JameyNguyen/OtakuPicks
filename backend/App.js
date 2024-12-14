@@ -78,7 +78,7 @@ app.post("/anime", upload.single("image"), (req,res) => {
 });
 
 // Get anime with search term
-app.get("/anime/search", (req, res) => {
+app.get("/anime", (req, res) => {
     const searchTerm = req.query.q;
     const query = "SELECT name FROM anime WHERE LOWER(name) LIKE LOWER(?)";
     try {
@@ -95,13 +95,12 @@ app.get("/anime/search", (req, res) => {
     }
 })
 
-// Get anime name by full name
-app.get("/anime/name", (req, res) => {
-    const { name } = req.query;
-    const query = "SELECT name FROM anime WHERE name = ?";
-    const searchName = `%{name}%`;
+// Get anime by full name
+app.get("/anime/:name", (req, res) => {
+    const name = req.params.name;
+    const query = "SELECT * FROM anime WHERE name = ?";
     try {
-        db.query(query, [searchName], (err, result) => {
+        db.query(query, [`%{name}%`], (err, result) => {
             if (err) {
                 console.error("Anime not found:", err);
                 return res.status(404).send({ error: "Anime not found" });
@@ -114,10 +113,10 @@ app.get("/anime/name", (req, res) => {
     }
 })
 
-//Get background
+//Get random background
 app.get("/background", (req, res) => {
     try {
-        db.query("SELECT * FROM background", (err, result) => {
+        db.query("SELECT * FROM background ORDER BY RAND() LIMIT 1", (err, result) => {
             return res.status(200).send(result);
         });
     } catch (err) {
@@ -125,10 +124,20 @@ app.get("/background", (req, res) => {
         res.status(500).send({ error: "An unexpected error occurred"+err });
     }       
 })
-//Get hint
-app.get("/anime/studio", (req, res) =>{
-    const { animeName } = req.params;
-    const query = "SELECT studio_name FROM anime WHERE name = ?";
+
+//Get hint from a specific anime
+app.get("/name/:hint", (req, res) => {
+    const { hint } = req.params.hint
+    const { animeName } = req.params.name;
+    if (hint.equals(studio)) {
+        const query = "SELECT studio_name FROM anime WHERE name = ?";
+    } else if (hint.equals(director)) {
+        const query = "SELECT director_name FROM anime WHERE name = ?";
+    } else if (hint.equals(year)) {
+        const query = "SELECT year FROM anime WHERE name = ?";
+    } else {
+        res.status(404).send({ error: 'Hint not found'});
+    }
     try {
         db.query(query, [ animeName ], (err, result)=>{
             if (err) {
