@@ -208,6 +208,51 @@ app.post("/login", (req, res) => {
     }
 });
 
+app.put("/update", (req, res) => {
+    const id = req.params.id;
+    const query = `
+        UPDATE user
+        SET user = ?, password = ?
+        WHERE id = ?
+    `;
+    try {
+        db.query(query, [user, password], (err, result) => {
+            if (err) {
+                console.log(err);
+                res.status(500).send({err:"Error updating info"});
+            } else if (result.affectedRows === 0) {
+                res.status(404).send({err:"User not found"});
+            } else {
+                res.status(200).send("Info updated successfully");
+            }
+        });
+    } catch {
+        // Handle synchronous errors
+        console.error("Error in UPDATE /update:", err);
+        res.status(500).send({ error: "An unexpected error occurred in UPDATE: " + err.message });
+    }
+});
+
+app.delete("/delete", (req, res) => {
+    const id = req.params.id;
+    const query = "DELETE FROM user WHERE id = ?";
+    try {
+        db.query(query, [id], (err, result) => {
+            if (err) {
+                console.log(err);
+                res.status(500).send({err:"Error deleting account"});
+            } else if (result.affectedRows === 0) {
+                res.status(404).send({err:"User not found"});
+            } else {
+                res.status(200).send("Account deleted successfully");
+            }
+        });
+    } catch (err) {
+         // Handle synchronous errors
+        console.error("Error in DELETE /delete:", err);
+        res.status(500).send({ error: "An unexpected error occurred in DELETE: " + err.message });
+    }
+});
 
 app.listen(port, () => {
     console.log("App listening at http://%s:%s", host, port)
