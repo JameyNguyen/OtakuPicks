@@ -19,8 +19,8 @@ const path = require('path');
 const mysql = require("mysql2");
 const db = mysql.createConnection({
     host: "127.0.0.1",
-    user: "otaku",
-    password: "picks",
+    user: "root", // henry uses otaku
+    password: "#Asian713911", // henry uses picks
     database: "otakupicks",
 });
 

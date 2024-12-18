@@ -19,6 +19,7 @@ function AnimeGuessr() {
   const [feedback, setFeedback] = useState("");
   const [anime, setAnime] = useState("");
 
+
   // Upon game start, get a background and its info
   const fetchBackground = async () => {
     try {
@@ -29,11 +30,11 @@ function AnimeGuessr() {
       console.log("Fetch data:", data);
   
       if (data && data[0] && data[0].filename) {
-        // setBackground(`../images/${data[0].filename}`);
-        setBackground(backgroundImage2);
+        setBackground(`../images/${data[0].filename}`);
+        //setBackground(backgroundImage2);
         console.log(data[0].filename);
-        // setAnime(data[0].anime);
-        setAnime("K-On");
+        setAnime(data[0].anime);
+        //setAnime("K-On");
         console.log(data[0].anime);
 
       } else {
@@ -104,7 +105,20 @@ function AnimeGuessr() {
           <button className="share-button" onClick={shareResults}>Share Results</button>
         </div>
       ) : (
-        <div className="anime-guessr-container" style={{ backgroundImage: `url(${backgroundImage2})`, backgroundSize: "cover"}}>
+        <div className="anime-guessr-container" style={{ backgroundImage: `url(${background})`, backgroundSize: "cover"}}>
+          <div className="menu-container">
+        <button className="menu-button" onClick={toggleMenu}>
+          MENU
+        </button>
+        {menuOpen && (
+          <ul className="navbar-nav ms-auto py-4 py-lg-0">
+            <li className="nav-item-menu"><Link className="nav-link" to="/">Home</Link></li>
+            <li className="nav-item-menu"><Link className="nav-link" to="/animeguessr">AnimeGuessr</Link></li>
+            <li className="nav-item-menu"><Link className="nav-link" to="/catalog">Our Picks</Link></li>
+            <li className="nav-item-menu"><Link className="nav-link" to="/about">About Us</Link></li>
+          </ul>
+        )}
+      </div>
           <div className="game">
             <h1 className="game-title">Guess the Anime!</h1>
             <input
