@@ -70,8 +70,8 @@ function AnimeGuessr() {
     setScore(0);
     setHintsUsed(0);
     setGuessesMade(0);
+    setFeedback("")
     await fetchBackground();
-
   };
 
   return (
@@ -102,6 +102,8 @@ function AnimeGuessr() {
         <div className="end-result">
           <h1>You got it!</h1>
           <p>Your Score: {score}</p>
+          <p>Your Guesses: {guessesMade}</p>
+          <button className="share-button" onClick={startGame}>Retry</button>
           <button className="share-button" onClick={shareResults}>Share Results</button>
         </div>
       ) : (
