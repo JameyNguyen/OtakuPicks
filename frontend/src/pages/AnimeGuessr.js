@@ -124,6 +124,7 @@ function AnimeGuessr() {
             <li className="nav-item-menu"><Link className="nav-link" to="/animeguessr">AnimeGuessr</Link></li>
             <li className="nav-item-menu"><Link className="nav-link" to="/catalog">Our Picks</Link></li>
             <li className="nav-item-menu"><Link className="nav-link" to="/about">About Us</Link></li>
+            <li className="nav-item-menu"><Link className="nav-link" to="/loginsignup">Login</Link></li>
           </ul>
         )}
       </div>

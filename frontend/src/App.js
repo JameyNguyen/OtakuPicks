@@ -6,6 +6,7 @@ import JameyPage from "./pages/JameyPage";
 import AboutPage from "./pages/AboutPage";
 import HenryPage from "./pages/HenryPage";
 import AnimeGuessr from "./pages/AnimeGuessr";
+import LoginSignupPage from "./pages/LoginSignupPage";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/henry" element={<HenryPage />} />
         <Route path="/animeguessr" element={<AnimeGuessr/>} />
+        <Route path="/loginsignup" element={<LoginSignupPage/>}></Route>
       </Routes>
     </Router>
   );

@@ -19,8 +19,8 @@ const path = require('path');
 const mysql = require("mysql2");
 const db = mysql.createConnection({
     host: "127.0.0.1",
-    user: "otaku",
-    password: "picks",
+    user: "root",
+    password: "#Asian713911",
     database: "otakupicks",
 });
 
@@ -48,30 +48,6 @@ const fs = require("fs");
 if (!fs.existsSync("images")) {
     fs.mkdirSync("images");
 }
-
-// login
-app.post("/login", (req, res) => {
-    const { username, password } = req.body;
-    if (!username || !password) {
-        return res.status(400).send({ error: "Username and password are required." });
-    }
-    const query = "SELECT id FROM user WHERE user = ? AND password = ?";
-    try {
-        db.query(query, [username, password], (err, results) => {
-            if (err) {
-                console.error("Database error during login:", err);
-                return res.status(500).send({ error: "An error occurred in Query. Please try again." });
-            }
-            if (results.length === 0) {
-                return res.status(401).send({ error: "Invalid username or password." });
-            }
-        });
-    } catch (err) {
-        // Handle synchronous errors
-        console.error("Error in GET /contact/login", err);
-        res.status(500).send({ error: "An unexpected error occurred in Login: " + err.message });
-    }
-})
 
 // post anime
 app.post("/anime", upload.single("image"), (req,res) => {
@@ -173,6 +149,65 @@ app.get("/name/:hint", (req, res) => {
         res.status(500).send({ error: 'Error fetching studio hint:'+ err });
     }
 })
+
+// Login User
+app.post("/login", (req, res) => {
+    const { email, userpassword } = req.body;
+  
+    // Validate input
+    if (!email || !userpassword) {
+        return res.status(400).json({ error: "Email and password are required." });
+    }
+  
+    // Query to check email and password in the database
+    const query = "SELECT email FROM users WHERE email = ? AND userpassword = ?";
+  
+    db.query(query, [email, userpassword], (err, results) => {
+      if (err) {
+        console.error("Database error:", err);
+        return res.status(500).json({ error: "An internal server error occurred." });
+      }
+  
+      // Check if user exists
+      if (results.length === 0) {
+        return res.status(401).json({ error: "Invalid email or password." });
+      }
+  
+      // Login success
+      res.status(200).json({ message: "Login successful", email: email });
+    });
+  });
+
+  // Signup new users
+  app.post("/signup", (req, res) => {
+    const { username, email, userpassword } = req.body;
+
+    // Check for missing input fields
+    if (!username || !email || !userpassword) {
+        return res.status(400).send({ error: "Username, email, and password are required." });
+    }
+
+    // Insert user into the database
+    const query = "INSERT INTO users (username, email, userpassword) VALUES (?, ?, ?)";
+    try {
+        db.query(query, [username, email, userpassword], (err, result) => {
+            if (err) {
+                // Check for duplicate email error
+                if (err.code === "ER_DUP_ENTRY") {
+                    return res.status(409).send({ error: "Email is already registered." });
+                }
+                console.error("Database error during sign-up:", err);
+                return res.status(500).send({ error: "An error occurred. Please try again." });
+            }
+            // Successfully inserted
+            res.status(201).send({ message: "User signed up successfully!" });
+        });
+    } catch (error) {
+        console.error("Error in /signup:", error);
+        res.status(500).send({ error: "An unexpected error occurred." });
+    }
+});
+
 
 app.listen(port, () => {
     console.log("App listening at http://%s:%s", host, port)

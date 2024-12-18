@@ -40,6 +40,9 @@ function JameyPage() {
               <li className="nav-item">
                 <Link className="nav-link px-lg-3 py-3 py-lg-4" to="/about">About Us</Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link px-lg-3 py-3 py-lg-4" to="/loginsignup">Login</Link>
+              </li>
             </ul>
           </div>
         </div>
