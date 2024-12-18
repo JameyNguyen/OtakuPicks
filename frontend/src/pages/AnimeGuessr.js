@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "../styles/styles.css";
 import "../styles/custom.css";
 import backgroundImage from "../images/flip_flappers.jpg";
-import backgroundImage2 from "../images/k-on_school_background.jpg";
 
 function AnimeGuessr() {
   const [gameStarted, setGameStarted] = useState(false);
@@ -20,7 +19,6 @@ function AnimeGuessr() {
   const [feedback, setFeedback] = useState("");
   const [anime, setAnime] = useState("");
   // ----
-
 
   // Upon game start, get a background and its info
   const fetchBackground = async () => {
@@ -47,7 +45,6 @@ function AnimeGuessr() {
     }
   };
   
-
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -59,7 +56,7 @@ function AnimeGuessr() {
 
   const checkAnimeGuess = async () => {
     setGuessesMade(guessesMade + 1);
-    setFeedback(userGuess == anime ? "Correct!" : "Incorrect, try again!");
+    setFeedback(userGuess == anime ? "Correct!" : `Incorrect, try again! Current points: ${21-guessesMade}`);
     if (userGuess == anime) {
       setScore(score + 1);
       setGameFinished(true); 
@@ -135,7 +132,7 @@ function AnimeGuessr() {
       ) : gameFinished ? (
         <div className="end-result">
           <h1>You got it!</h1>
-          <p>Your Score: {20-guessesMade}</p>
+          <p>Your Score: {Math.max(0, 21-guessesMade)}</p>
           <button className="share-button" onClick={shareResults}>Share Results</button>
         </div>
       ) : (
