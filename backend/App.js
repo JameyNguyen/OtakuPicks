@@ -19,8 +19,8 @@ const path = require('path');
 const mysql = require("mysql2");
 const db = mysql.createConnection({
     host: "127.0.0.1",
-    user: "root", // henry uses otaku
-    password: "#Asian713911", // henry uses picks
+    user: "otaku",
+    password: "picks",
     database: "otakupicks",
 });
 
@@ -99,7 +99,7 @@ app.get("/anime", (req, res) => {
     const searchTerm = req.query.q;
     const query = "SELECT name FROM anime WHERE LOWER(name) LIKE LOWER(?)";
     try {
-        db.query(query, [`%{searchTerm}%`], (err, result) => {
+        db.query(query, [`%${searchTerm}%`], (err, result) => {
             if (err) {
                 console.error("Error performing search:", err);
                 return res.status(500).send({ error: "Error performing search" });

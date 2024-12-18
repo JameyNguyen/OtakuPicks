@@ -14,10 +14,12 @@ function AnimeGuessr() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [background, setBackground] = useState("");
-  // const background = "../images/k-on_school_background.jpg";
+  // for search----
   const [userGuess, setUserGuess] = useState("");
+  const [dropdownResults, setDropDownResults] = useState([]);
   const [feedback, setFeedback] = useState("");
   const [anime, setAnime] = useState("");
+  // ----
 
 
   // Upon game start, get a background and its info
@@ -64,6 +66,31 @@ function AnimeGuessr() {
     }
   };
 
+  // fetches near matches for dropdown
+  const fetchAnimeMatches = async (searchTerm) => {
+    if (!searchTerm.trim()) {
+      setDropDownResults([]); // Clear dropdown if input is empty
+      return;
+    }
+    try {
+      const response = await fetch(`http://localhost:8081/anime?q=${searchTerm}`);
+      if (!response.ok) {
+        throw new Error("Error fetching anime");
+      }
+      const results = await response.json();
+      console.log(results);
+      setDropDownResults(results);
+    } catch (err) {
+      setFeedback("Failed to fetch anime");
+      console.error(err);
+    }
+  }
+
+  const handleDropdownSelect = (selectedAnime) => {
+    setUserGuess(selectedAnime);
+    setDropDownResults([]);
+  }
+
   const startGame = async () => {
     setGameStarted(true);
     setGameFinished(false);
@@ -73,6 +100,14 @@ function AnimeGuessr() {
     setFeedback("")
     await fetchBackground();
   };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      if (userGuess!="") {
+        checkAnimeGuess();
+      }
+    }
+  }
 
   return (
     <div className="anime-guessr-container" 
@@ -101,9 +136,7 @@ function AnimeGuessr() {
       ) : gameFinished ? (
         <div className="end-result">
           <h1>You got it!</h1>
-          <p>Your Score: {score}</p>
-          <p>Your Guesses: {guessesMade}</p>
-          <button className="share-button" onClick={startGame}>Retry</button>
+          <p>Your Score: {20-guessesMade}</p>
           <button className="share-button" onClick={shareResults}>Share Results</button>
         </div>
       ) : (
@@ -126,10 +159,27 @@ function AnimeGuessr() {
             <input
               type="text"
               value={userGuess}
-              onChange={(e) => setUserGuess(e.target.value)}
+              onChange={(e) => {
+                setUserGuess(e.target.value)
+                fetchAnimeMatches(e.target.value)
+              }}
+              onKeyDown={handleKeyDown}
               placeholder="Enter anime name"
               className="guess-input"
             />
+            {dropdownResults.length > 0 && (
+              <ul className="dropdown">
+                {dropdownResults.map((result, index) => (
+                  <li
+                    key={index}
+                    onClick={() => handleDropdownSelect(result.name)}
+                    className="dropdown-item"
+                  >
+                    {result.name}
+                  </li>
+                ))}
+              </ul>
+            )}
             <button onClick={checkAnimeGuess} className="guess-button">Submit Guess</button>
             <p className="feedback">{feedback}</p>
           </div>
