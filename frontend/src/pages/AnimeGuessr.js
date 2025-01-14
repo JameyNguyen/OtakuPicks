@@ -31,12 +31,9 @@ function AnimeGuessr() {
   
       if (data && data[0] && data[0].filename) {
         setBackground(`../images/${data[0].filename}`);
-        //setBackground(backgroundImage2);
         console.log(data[0].filename);
         setAnime(data[0].anime);
-        //setAnime("K-On");
         console.log(data[0].anime);
-
       } else {
         console.error("Invalid data structure:", data);
       }
@@ -56,7 +53,7 @@ function AnimeGuessr() {
 
   const checkAnimeGuess = async () => {
     setGuessesMade(guessesMade + 1);
-    setFeedback(userGuess == anime ? "Correct!" : `Incorrect, try again! Current points: ${21-guessesMade}`);
+    setFeedback(userGuess == anime ? "Correct!" : `Incorrect, try again! Current points: ${19-guessesMade}`);
     if (userGuess == anime) {
       setScore(score + 1);
       setGameFinished(true); 
